@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d3rypl5tlgjr"]
+
+[ext_resource type="Script" uid="uid://dc78irm4wyt6t" path="res://screen_scaling.gd" id="1_f3sb7"]
+
+[node name="World" type="Node2D" unique_id=315744756]
+
+[node name="ScreenScaling" type="Node" parent="." unique_id=63466271]
+script = ExtResource("1_f3sb7")
