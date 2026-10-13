@@ -1,0 +1,51 @@
+[gd_scene format=4 uid="uid://d3rypl5tlgjr"]
+
+[ext_resource type="Script" uid="uid://dc78irm4wyt6t" path="res://scripts/window_manager.gd" id="1_rwgxs"]
+[ext_resource type="Texture2D" uid="uid://c3mlfiyetnkvq" path="res://assets/sprites/characters/character.png" id="2_4wyf3"]
+[ext_resource type="Texture2D" uid="uid://bf6ctbe8inm61" path="res://assets/sprites/tileset/floor.png" id="2_k0juu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71j4m"]
+texture = ExtResource("2_k0juu")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrains_peering_bit/top_left_corner = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+
+[sub_resource type="TileSet" id="TileSet_k0juu"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Floor"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Walls"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_71j4m")
+
+[node name="World" type="Node2D" unique_id=315744756]
+
+[node name="WindowManager" type="Node" parent="." unique_id=63466271]
+script = ExtResource("1_rwgxs")
+
+[node name="Tilemaps" type="Node2D" parent="." unique_id=147451844]
+
+[node name="Floor and Walls" type="TileMapLayer" parent="Tilemaps" unique_id=899713049]
+tile_map_data = PackedByteArray("AAD5/wEAAAAAAAAAAAAEAAEAAAAAAAAAAAD6/wAAAAAAAAAAAAD5/wAAAAAAAAEAAAD5////AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAD6//7/AAAAAAEAAAD5//7/AAAAAAAAAAD5//3/AAAAAAAAAAD6//3/AAAAAAAAAAD7//3/AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAADAAEAAAAAAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAEAP7/AAAAAAEAAAADAP7/AAAAAAEAAAACAP7/AAAAAAEAAAABAP7/AAAAAAEAAAAAAP7/AAAAAAEAAAD///7/AAAAAAEAAAD+//7/AAAAAAEAAAD9//7/AAAAAAEAAAD8//7/AAAAAAEAAAD7//7/AAAAAAEAAAADAAAAAAAAAAEAAAD5/wIAAAAAAAEAAAD6/wIAAAAAAAAAAAD7/wIAAAAAAAEAAAD8/wIAAAAAAAEAAAD9/wIAAAAAAAEAAAD+/wIAAAAAAAEAAAD//wIAAAAAAAEAAAAAAAIAAAAAAAEAAAABAAIAAAAAAAEAAAACAAIAAAAAAAEAAAADAAIAAAAAAAEAAAAEAAIAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_k0juu")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=387574535]
+
+[node name="Sprite" type="Sprite2D" parent="Player" unique_id=78292]
+texture = ExtResource("2_4wyf3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=684631809]
