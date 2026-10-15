@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf6ctbe8inm61"
-path="res://.godot/imported/floor.png-fb611557a3376bf8264efd4d87562c79.ctex"
+uid="uid://cdtcuyt28kx6m"
+path="res://.godot/imported/doorway_tiles.png-a0fc011c818ae3897b3752fcf47db3fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tileset/floor.png"
-dest_files=["res://.godot/imported/floor.png-fb611557a3376bf8264efd4d87562c79.ctex"]
+source_file="res://assets/sprites/tiles/doorway_tiles.png"
+dest_files=["res://.godot/imported/doorway_tiles.png-a0fc011c818ae3897b3752fcf47db3fa.ctex"]
 
 [params]
 
