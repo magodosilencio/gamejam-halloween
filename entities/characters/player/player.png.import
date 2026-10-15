@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdtcuyt28kx6m"
-path="res://.godot/imported/doorway_tiles.png-a0fc011c818ae3897b3752fcf47db3fa.ctex"
+uid="uid://c3mlfiyetnkvq"
+path="res://.godot/imported/player.png-8e160c26039749bbb7c98159a86f38cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tiles/doorway_tiles.png"
-dest_files=["res://.godot/imported/doorway_tiles.png-a0fc011c818ae3897b3752fcf47db3fa.ctex"]
+source_file="res://entities/characters/player/player.png"
+dest_files=["res://.godot/imported/player.png-8e160c26039749bbb7c98159a86f38cd.ctex"]
 
 [params]
 
