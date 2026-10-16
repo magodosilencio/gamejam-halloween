@@ -5,8 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b4w8d2gel15fr" path="res://world/tilesets/wall_tiles.png" id="3_hve3p"]
 [ext_resource type="Texture2D" uid="uid://cdtcuyt28kx6m" path="res://world/tilesets/doorway_tiles.png" id="4_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://b7gg4ixij6daw" path="res://entities/characters/player/player.tscn" id="5_eow3j"]
-[ext_resource type="Script" uid="uid://mtqhkqt8l2yd" path="res://entities/environment/furniture/door/door.gd" id="7_215e1"]
-[ext_resource type="Texture2D" uid="uid://dps8ywkc448e7" path="res://entities/environment/furniture/door/door.png" id="8_7sc4i"]
+[ext_resource type="PackedScene" uid="uid://c6hvj02oc32hv" path="res://entities/environment/furniture/door/door.tscn" id="6_ryrav"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0juu"]
 texture = ExtResource("2_vef74")
@@ -145,92 +144,6 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_i7141")
 sources/4 = SubResource("TileSetAtlasSource_4mrxx")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i7141"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(128, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4mrxx"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(96, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7r4gi"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(64, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w7kh3"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(32, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3hyu"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(0, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q5onr"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(0, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jhx03"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(32, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8fc1"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(64, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xo05s"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(96, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dss4m"]
-atlas = ExtResource("8_7sc4i")
-region = Rect2(128, 0, 32, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i7141")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4mrxx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7r4gi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w7kh3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e3hyu")
-}],
-"loop": 0,
-"name": &"close",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q5onr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jhx03")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o8fc1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xo05s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dss4m")
-}],
-"loop": 0,
-"name": &"open",
-"speed": 10.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7141"]
-size = Vector2(16, 2)
-
 [node name="Game" type="Node" unique_id=528042950]
 
 [node name="WindowManager" type="Node" parent="." unique_id=63466271]
@@ -243,6 +156,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="World" type="Node2D" parent="." unique_id=1185769115]
+y_sort_enabled = true
 
 [node name="Tilemaps" type="Node2D" parent="World" unique_id=147451844]
 
@@ -257,18 +171,5 @@ tile_set = SubResource("TileSet_k0juu")
 
 [node name="Camera2D" type="Camera2D" parent="World" unique_id=684631809]
 
-[node name="Door" type="StaticBody2D" parent="World" unique_id=1025546652]
-script = ExtResource("7_215e1")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Door" unique_id=2020385282]
-sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"close"
-frame = 4
-frame_progress = 1.0
-offset = Vector2(0, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Door" unique_id=1829728199]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_i7141")
-
-[connection signal="animation_finished" from="World/Door/AnimatedSprite2D" to="World/Door" method="_on_animated_sprite_2d_animation_finished"]
+[node name="Door" parent="World" unique_id=1188765999 instance=ExtResource("6_ryrav")]
+position = Vector2(-24, 0)
