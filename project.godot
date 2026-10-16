@@ -15,7 +15,6 @@ general/updates_per_second=30
 [application]
 
 config/name="Gamejam Halloween IMD"
-run/main_scene="uid://d3rypl5tlgjr"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [display]
