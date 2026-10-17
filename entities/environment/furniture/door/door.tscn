@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mtqhkqt8l2yd" path="res://entities/environment/furniture/door/door.gd" id="1_bmvtd"]
 [ext_resource type="Texture2D" uid="uid://dps8ywkc448e7" path="res://entities/environment/furniture/door/door.png" id="2_oc581"]
-[ext_resource type="PackedScene" uid="uid://dhau77omes8bb" path="res://entities/environment/interactable.tscn" id="3_oc581"]
+[ext_resource type="PackedScene" uid="uid://dhau77omes8bb" path="res://entities/interactable/interactable.tscn" id="3_oc581"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7141"]
 atlas = ExtResource("2_oc581")
@@ -88,7 +88,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7141"]
-size = Vector2(16, 2)
+size = Vector2(16, 8)
 
 [node name="Door" type="StaticBody2D" unique_id=1188765999]
 script = ExtResource("1_bmvtd")
@@ -101,13 +101,12 @@ frame_progress = 1.0
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356541799]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_i7141")
 
 [node name="Interactable" parent="." unique_id=114067998 instance=ExtResource("3_oc581")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1579670975]
-position = Vector2(0, 2)
+visible = false
 shape = SubResource("RectangleShape2D_i7141")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

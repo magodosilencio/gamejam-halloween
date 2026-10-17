@@ -10,11 +10,12 @@ radius = 3.0
 size = Vector2(24, 24)
 
 [node name="Player" type="CharacterBody2D" unique_id=1035651697]
+collision_mask = 3
 script = ExtResource("1_eoic6")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1471310765]
 texture = ExtResource("2_qrd5i")
-offset = Vector2(0, -11)
+offset = Vector2(0, -12)
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=892401914]
 rotation = 1.5707964
@@ -35,8 +36,6 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="InteractionRay" type="RayCast2D" parent="Raycasts" unique_id=604335527]
 target_position = Vector2(10, 0)
 collision_mask = 128
+hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
-
-[connection signal="area_entered" from="Areas/InteractionArea" to="." method="_on_interaction_area_area_entered"]
-[connection signal="area_exited" from="Areas/InteractionArea" to="." method="_on_interaction_area_area_exited"]

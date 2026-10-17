@@ -47,11 +47,4 @@ func _move():
 func _interact():
 	if (interaction_ray.is_colliding()):
 		var object: Interactable = interaction_ray.get_collider();
-		object.interact();
-
-
-func _on_interaction_area_area_entered(area: Area2D) -> void:
-	pass
-
-func _on_interaction_area_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
+		if (object != null): object.interact();
