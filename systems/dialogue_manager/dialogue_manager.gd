@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @export var DialogueBox: Control;
-@export var DialogueText: RichTextLabel;
+@export var DialogueText: Label;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
