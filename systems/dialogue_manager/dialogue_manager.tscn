@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bh6xjea5ef3en"]
+
+[ext_resource type="Texture2D" uid="uid://m6snhb2qtcj4" path="res://systems/dialogue_manager/dialogue_box.png" id="1_3f0n1"]
+[ext_resource type="Script" uid="uid://ce73h17k8qyo5" path="res://systems/dialogue_manager/dialogue_manager.gd" id="1_3qcsk"]
+[ext_resource type="FontFile" uid="uid://cm2c858l5l0p0" path="res://assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="3_twn3y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+line_spacing = 0.0
+font = ExtResource("3_twn3y")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="DialogueManager" type="CanvasLayer" unique_id=683399946 node_paths=PackedStringArray("DialogueBox", "DialogueText")]
+script = ExtResource("1_3qcsk")
+DialogueBox = NodePath("")
+DialogueText = NodePath("")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1796503834]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="DialogueBox" type="PanelContainer" parent="MarginContainer" unique_id=1206789774]
+layout_mode = 2
+
+[node name="Box" type="NinePatchRect" parent="MarginContainer/DialogueBox" unique_id=301211288]
+layout_mode = 2
+texture = ExtResource("1_3f0n1")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/DialogueBox" unique_id=451167862]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="DialogueText" type="Label" parent="MarginContainer/DialogueBox/MarginContainer" unique_id=1311017737]
+custom_maximum_size = Vector2(288, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+label_settings = SubResource("LabelSettings_g4v7s")
+autowrap_mode = 1
+text_overrun_behavior = 4
+max_lines_visible = 5

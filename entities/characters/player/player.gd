@@ -12,7 +12,6 @@ var dir: Vector2 = Vector2.ZERO;
 
 func _ready() -> void:
 	add_to_group("player");
-	pass # Replace with function body.
 
 func _process(delta: float) -> void:
 	_input_handling();
