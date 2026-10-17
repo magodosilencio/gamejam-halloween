@@ -22,6 +22,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 WindowManager="*uid://dc78irm4wyt6t"
 GameEvents="*uid://b57p5o48tf6w6"
+CameraManager="*uid://dg3miukocjyec"
 
 [display]
 
@@ -102,4 +103,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

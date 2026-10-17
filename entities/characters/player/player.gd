@@ -13,6 +13,12 @@ var dir: Vector2 = Vector2.ZERO;
 
 func _ready() -> void:
 	add_to_group("player");
+	
+	GameEvents.dialogue_started.connect(_on_dialogue_started);
+	GameEvents.dialogue_finished.connect(_on_dialogue_finished);
+	
+	await get_tree().create_timer(0.05).timeout
+	CameraManager.change_camera_target(self);
 
 func _process(delta: float) -> void:
 	_input_handling();
@@ -48,3 +54,9 @@ func _interact():
 	if (interaction_ray.is_colliding()):
 		var object: Interactable = interaction_ray.get_collider();
 		if (object != null): object.interact();
+
+func _on_dialogue_started():
+	can_move = false;
+
+func _on_dialogue_finished():
+	can_move = true;
