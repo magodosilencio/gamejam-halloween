@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mtqhkqt8l2yd" path="res://entities/environment/furniture/door/door.gd" id="1_bmvtd"]
 [ext_resource type="Texture2D" uid="uid://dps8ywkc448e7" path="res://entities/environment/furniture/door/door.png" id="2_oc581"]
+[ext_resource type="PackedScene" uid="uid://dhau77omes8bb" path="res://entities/environment/interactable.tscn" id="3_oc581"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7141"]
 atlas = ExtResource("2_oc581")
@@ -103,4 +104,11 @@ offset = Vector2(0, -16)
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_i7141")
 
+[node name="Interactable" parent="." unique_id=114067998 instance=ExtResource("3_oc581")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1579670975]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_i7141")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b7gg4ixij6daw"]
+
+[ext_resource type="Script" uid="uid://dnjagpvstvs6" path="res://entities/characters/player/player.gd" id="1_eoic6"]
+[ext_resource type="Texture2D" uid="uid://c3mlfiyetnkvq" path="res://entities/characters/player/player.png" id="2_qrd5i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(24, 24)
+
+[node name="Player" type="CharacterBody2D" unique_id=1035651697]
+script = ExtResource("1_eoic6")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1471310765]
+texture = ExtResource("2_qrd5i")
+offset = Vector2(0, -11)
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=892401914]
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="Areas" type="Node2D" parent="." unique_id=1987407643]
+
+[node name="InteractionArea" type="Area2D" parent="Areas" unique_id=1570308205]
+collision_layer = 0
+collision_mask = 128
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/InteractionArea" unique_id=1906673769]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Raycasts" type="Node2D" parent="." unique_id=938651965]
+
+[node name="InteractionRay" type="RayCast2D" parent="Raycasts" unique_id=604335527]
+target_position = Vector2(10, 0)
+collision_mask = 128
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="area_entered" from="Areas/InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="Areas/InteractionArea" to="." method="_on_interaction_area_area_exited"]

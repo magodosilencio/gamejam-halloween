@@ -41,3 +41,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if (sprite.animation == "close"):
 		#pla sound
 		print("cleck");
+
+
+func _on_interactable_interacted() -> void:
+	if (is_open): _close();
+	else: _open();
