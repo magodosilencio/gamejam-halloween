@@ -1,5 +1,6 @@
-@tool
 extends StaticBody2D;
+
+const ANIM_OPEN: String = "open";
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D;
 @onready var collider: CollisionShape2D = $CollisionShape2D;
@@ -8,41 +9,31 @@ extends StaticBody2D;
 @export var is_open: bool = false:
 	set (value):
 		is_open = value;
-		_update_door();
 
-func _ready() -> void:
-	_update_door();
+var is_changing_state: bool = false;
 
-func _open():
-	# TO DO: play sound
-	is_open = true;
-	_update_door();
+func _ready():
+	var last_frame: int = sprite.sprite_frames.get_frame_count(ANIM_OPEN);
+	sprite.frame = last_frame if is_open else 0;
 
-func _close():
-	# TO DO: play sound
-	is_open = false;
-	_update_door();
+func _change_door_state():
+	if (!is_node_ready() || is_changing_state): return;
+	
+	is_open = !is_open;
+	is_changing_state = true;
+	
+	if (is_open):
+		sprite.play(ANIM_OPEN);
+	else:
+		sprite.play_backwards(ANIM_OPEN);
 
 func _unlock():
 	# TO DO: Play sound
 	is_locked = false;
 
-func _update_door():
-	if !is_node_ready(): return;
-	
-	if (is_open):
-		sprite.play("open");
-	else:
-		sprite.play("close");
-	
-	collider.disabled = is_open;
-
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if (sprite.animation == "close"):
-		#pla sound
-		print("cleck");
-
+	collider.disabled = is_open;
+	is_changing_state = false;
 
 func _on_interactable_interacted() -> void:
-	if (is_open): _close();
-	else: _open();
+	_change_door_state();

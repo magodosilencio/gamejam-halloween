@@ -4,26 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dps8ywkc448e7" path="res://entities/environment/furniture/door/door.png" id="2_oc581"]
 [ext_resource type="PackedScene" uid="uid://dhau77omes8bb" path="res://entities/interactable/interactable.tscn" id="3_oc581"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i7141"]
-atlas = ExtResource("2_oc581")
-region = Rect2(128, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4mrxx"]
-atlas = ExtResource("2_oc581")
-region = Rect2(96, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7r4gi"]
-atlas = ExtResource("2_oc581")
-region = Rect2(64, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w7kh3"]
-atlas = ExtResource("2_oc581")
-region = Rect2(32, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3hyu"]
-atlas = ExtResource("2_oc581")
-region = Rect2(0, 0, 32, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5onr"]
 atlas = ExtResource("2_oc581")
 region = Rect2(0, 0, 32, 48)
@@ -48,26 +28,6 @@ region = Rect2(128, 0, 32, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i7141")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4mrxx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7r4gi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w7kh3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e3hyu")
-}],
-"loop": 0,
-"name": &"close",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_q5onr")
 }, {
 "duration": 1.0,
@@ -88,17 +48,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7141"]
-size = Vector2(16, 8)
+size = Vector2(16, 16)
 
 [node name="Door" type="StaticBody2D" unique_id=1188765999]
 script = ExtResource("1_bmvtd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=918457851]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"close"
-frame = 4
-frame_progress = 1.0
-offset = Vector2(0, -16)
+animation = &"open"
+offset = Vector2(0, -12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356541799]
 shape = SubResource("RectangleShape2D_i7141")
