@@ -28,10 +28,12 @@ func _input_handling() -> void:
 	if (Input.is_action_just_pressed("interact")): _interact();
 
 func _update_direction():
-	if (dir.x > 0): interaction_ray.rotation = 0;
-	elif (dir.x < 0): interaction_ray.rotation = PI;
-	elif (dir.y > 0): interaction_ray.rotation = PI / 2;
-	elif (dir.y < 0): interaction_ray.rotation = -PI / 2;
+	if (abs(dir.y) > abs(dir.x)):
+		if (dir.y > 0): interaction_ray.rotation = PI / 2;
+		elif (dir.y < 0): interaction_ray.rotation = -PI / 2;
+	else:
+		if (dir.x > 0): interaction_ray.rotation = 0;
+		elif (dir.x < 0): interaction_ray.rotation = PI;
 
 func _move():
 	var abs_dir: Vector2 = dir.abs();
