@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const TILE_SIZE: int = 16;
 const MOVEMENT_DEADZONE: float = 0.25;

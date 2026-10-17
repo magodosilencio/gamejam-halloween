@@ -18,6 +18,11 @@ config/name="Gamejam Halloween IMD"
 run/main_scene="uid://dp83flofq3btp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+WindowManager="*uid://dc78irm4wyt6t"
+GameEvents="*uid://b57p5o48tf6w6"
+
 [display]
 
 window/size/viewport_width=320
