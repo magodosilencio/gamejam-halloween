@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cqkn5g16uvdcm"
-path="res://.godot/imported/KiwiSoda.ttf-0f7a6c8d932f15a65197cd32c59ced5c.fontdata"
+uid="uid://difh0bbgq4wt7"
+path="res://.godot/imported/monogram-extended.ttf-ce1f0586f73f5f03f116df8d2cd7d598.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/kiwisoda/KiwiSoda.ttf"
-dest_files=["res://.godot/imported/KiwiSoda.ttf-0f7a6c8d932f15a65197cd32c59ced5c.fontdata"]
+source_file="res://assets/fonts/monogram/ttf/monogram-extended.ttf"
+dest_files=["res://.godot/imported/monogram-extended.ttf-ce1f0586f73f5f03f116df8d2cd7d598.fontdata"]
 
 [params]
 
