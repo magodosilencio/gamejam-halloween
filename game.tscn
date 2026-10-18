@@ -1,10 +1,12 @@
 [gd_scene format=4 uid="uid://dp83flofq3btp"]
 
-[ext_resource type="Script" uid="uid://dc78irm4wyt6t" path="res://systems/window_manager.gd" id="1_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://mvihqvmtsket" path="res://systems/dialogue_balloon/dialogue_balloon.tscn" id="2_eow3j"]
 [ext_resource type="Texture2D" uid="uid://bf6ctbe8inm61" path="res://world/tilesets/floor_tiles.png" id="2_vef74"]
 [ext_resource type="Texture2D" uid="uid://b4w8d2gel15fr" path="res://world/tilesets/wall_tiles.png" id="3_hve3p"]
+[ext_resource type="Resource" uid="uid://bglqrnyc8sxnu" path="res://dialogues/interactable/locked_door.dialogue" id="3_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://b7gg4ixij6daw" path="res://entities/characters/player/player.tscn" id="5_eow3j"]
 [ext_resource type="PackedScene" uid="uid://c6hvj02oc32hv" path="res://entities/environment/furniture/door/door.tscn" id="6_ryrav"]
+[ext_resource type="Script" uid="uid://bpkdhbv5wkqp5" path="res://systems/camera_follow/camera_follow.gd" id="7_eow3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0juu"]
 texture = ExtResource("2_vef74")
@@ -162,20 +164,22 @@ sources/0 = SubResource("TileSetAtlasSource_i7141")
 
 [node name="Game" type="Node" unique_id=528042950]
 
-[node name="WindowManager" type="Node" parent="." unique_id=63466271]
-script = ExtResource("1_j5wjh")
-
 [node name="GUI" type="Control" parent="." unique_id=1736990343]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="ExampleBalloon" parent="GUI" unique_id=1912754290 instance=ExtResource("2_eow3j")]
+dialogue_resource = ExtResource("3_j5wjh")
+auto_start = true
+
 [node name="World" type="Node2D" parent="." unique_id=1185769115]
 y_sort_enabled = true
 
-[node name="Player" parent="World" unique_id=1035651697 instance=ExtResource("5_eow3j")]
-position = Vector2(0, 38)
+[node name="MainCamera" type="Camera2D" parent="World" unique_id=1279765276]
+script = ExtResource("7_eow3j")
+follow_speed = 2.0
 
 [node name="Environment" type="Node2D" parent="World" unique_id=946751228]
 y_sort_enabled = true
@@ -197,7 +201,8 @@ tile_set = SubResource("TileSet_4wyf3")
 
 [node name="Walls" type="TileMapLayer" parent="World/Tilemaps" unique_id=933663763]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAPAAUAAAAAAAAAAAD6////AAADAAAAAAAAAP//AAACAAAAAAABAP//AAAAAAEAAAACAP//AAAAAAEAAAACAPv/AAAAAAEAAAABAPv/AAAAAAEAAAAAAPv/AAAAAAEAAAD///v/AAAAAAEAAAD+//v/AAAAAAEAAAD9//v/AAAHAAAAAAD8//v/AAAAAAEAAAD7//v/AAAAAAEAAAD6//v/AAAAAAEAAAD5//v/AAAAAAEAAAD4//v/AAAAAAEAAAD3//v/AAAEAAAAAAD5////AAAAAAEAAAD4////AAAAAAEAAAD3////AAAEAAEAAAADAP//AAAAAAEAAAAEAP//AAAAAAEAAAAFAP//AAAFAAEAAAAFAP7/AAABAAAAAAAFAP3/AAABAAAAAAAFAPz/AAABAAAAAAAFAPv/AAAFAAAAAAAEAPv/AAAAAAEAAAADAPv/AAAAAAEAAAD3//z/AAABAAAAAAD3//3/AAABAAAAAAD3//7/AAABAAAAAAADAAEAAAAEAAAAAAADAAIAAAACAAEAAAAEAAEAAAADAAAAAAAGAAEAAAAAAAAAAAD9//7/AAABAAAAAAD9//3/AAABAAAAAAD9//z/AAABAAAAAAD8////AAACAAAAAAD9////AAAGAAEAAAD+////AAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAPAAUAAAAAAAAAAAD6////AAADAAAAAAAAAP//AAACAAAAAAABAP//AAAAAAEAAAACAP//AAAAAAEAAAACAPv/AAAAAAEAAAABAPv/AAAAAAEAAAAAAPv/AAAAAAEAAAD///v/AAAAAAEAAAD+//v/AAAAAAEAAAD9//v/AAAHAAAAAAD8//v/AAAAAAEAAAD7//v/AAAAAAEAAAD6//v/AAAAAAEAAAD5//v/AAAAAAEAAAD4//v/AAAAAAEAAAD3//v/AAAEAAAAAAD5////AAAAAAEAAAD4////AAAAAAEAAAD3////AAAEAAEAAAADAP//AAAAAAEAAAAEAP//AAAAAAEAAAAFAP//AAAFAAEAAAAFAP7/AAABAAAAAAAFAP3/AAABAAAAAAAFAPz/AAABAAAAAAAFAPv/AAAFAAAAAAAEAPv/AAAAAAEAAAADAPv/AAAAAAEAAAD3//z/AAABAAAAAAD3//3/AAABAAAAAAD3//7/AAABAAAAAAD9//7/AAABAAAAAAD9//3/AAABAAAAAAD9//z/AAABAAAAAAD8////AAACAAAAAAD9////AAAGAAEAAAD+////AAADAAAAAAA=")
 tile_set = SubResource("TileSet_k0juu")
 
-[node name="Camera2D" type="Camera2D" parent="World" unique_id=684631809]
+[node name="Player" parent="World" unique_id=1035651697 instance=ExtResource("5_eow3j")]
+position = Vector2(0, 38)

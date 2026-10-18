@@ -14,8 +14,8 @@ var dir: Vector2 = Vector2.ZERO;
 func _ready() -> void:
 	add_to_group("player");
 	
-	GameEvents.dialogue_started.connect(_on_dialogue_started);
-	GameEvents.dialogue_finished.connect(_on_dialogue_finished);
+	DialogueManager.connect("dialogue_started", _on_dialogue_started)
+	DialogueManager.connect("dialogue_ended", _on_dialogue_ended)
 	
 	await get_tree().create_timer(0.05).timeout
 	CameraManager.change_camera_target(self);
@@ -58,5 +58,5 @@ func _interact():
 func _on_dialogue_started():
 	can_move = false;
 
-func _on_dialogue_finished():
+func _on_dialogue_ended():
 	can_move = true;
