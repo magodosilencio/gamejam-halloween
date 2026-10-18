@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bglqrnyc8sxnu"
+path="res://.godot/imported/candies.dialogue-8a0fcc289869f3b637c0074906652fbc.tres"
+
+[deps]
+
+source_file="res://dialogues/interactable/candies.dialogue"
+dest_files=["res://.godot/imported/candies.dialogue-8a0fcc289869f3b637c0074906652fbc.tres"]
+
+[params]
+
+defaults=true

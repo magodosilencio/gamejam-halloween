@@ -9,7 +9,7 @@ class_name CameraFollow
 func _ready() -> void:
 	CameraManager.set_main_camera(self);
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if (camera_follow): _follow_target(delta);
 
 func set_target(new_target: Node2D) -> void:

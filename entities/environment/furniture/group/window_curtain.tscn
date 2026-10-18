@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d012prmpkn1ir"]
+
+[ext_resource type="Texture2D" uid="uid://dtdsk6c6bayqp" path="res://entities/environment/environment_atlas.png" id="1_wal37"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("1_wal37")
+region = Rect2(231, 286, 34, 31)
+
+[node name="WindowCurtain" type="StaticBody2D" unique_id=786031377]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1754859760]
+texture = SubResource("AtlasTexture_g4v7s")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540398539]

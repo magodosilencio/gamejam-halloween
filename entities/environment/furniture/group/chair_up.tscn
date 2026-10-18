@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c1ofwyqvxa5s8"]
+
+[ext_resource type="Texture2D" uid="uid://dtdsk6c6bayqp" path="res://entities/environment/environment_atlas.png" id="1_enn8m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("1_enn8m")
+region = Rect2(3, 272, 10, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrw6v"]
+size = Vector2(8, 8)
+
+[node name="ChairUp" type="StaticBody2D" unique_id=786031377]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1754859760]
+texture = SubResource("AtlasTexture_g4v7s")
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540398539]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_rrw6v")
+
+[node name="Shadow" type="ColorRect" parent="." unique_id=138961775]
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 3.0
+color = Color(0.062399995, 0.07775998, 0.12, 0.60784316)

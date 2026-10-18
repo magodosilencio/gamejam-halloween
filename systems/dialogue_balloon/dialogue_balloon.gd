@@ -37,8 +37,6 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
-var _pitch_variation: Array[int] = [1.0, 1.0]
-
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -70,8 +68,7 @@ var mutation_cooldown: Timer = Timer.new()
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
 ## Indicator to show that player can progress dialogue.
-@onready var progress: Polygon2D = %Progress
-
+@onready var progress: Sprite2D = %Progress
 
 func _ready() -> void:
 	balloon.hide()
@@ -136,9 +133,8 @@ func apply_dialogue_line() -> void:
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
 	
-	# Change character voice and pitch
+	# Change character voice
 	dialogue_audio_player.stream = CharacterVoices.get_character_voice(dialogue_line.character)
-	_pitch_variation = CharacterVoices.get_character_pitch(dialogue_line.character)
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -219,10 +215,10 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
-
+	# TODO: play sound
 
 #endregion
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
-	dialogue_audio_player.pitch_scale = randf_range(_pitch_variation[0], _pitch_variation[1]);
-	dialogue_audio_player.play();
+	dialogue_audio_player.pitch_scale = randf_range(0.9, 1.1)
+	dialogue_audio_player.play()

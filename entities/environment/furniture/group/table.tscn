@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ckwf54w0a2nwc"]
+
+[ext_resource type="Texture2D" uid="uid://dtdsk6c6bayqp" path="res://entities/environment/environment_atlas.png" id="1_36cr6"]
+[ext_resource type="Texture2D" uid="uid://ftg6xnref7yq" path="res://entities/environment/shadow.png" id="2_fqkls"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("1_36cr6")
+region = Rect2(38, 286, 36, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q8e7"]
+size = Vector2(34, 20)
+
+[node name="Table" type="StaticBody2D" unique_id=786031377]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1754859760]
+texture = SubResource("AtlasTexture_g4v7s")
+offset = Vector2(0, 6)
+
+[node name="Shadow" type="Sprite2D" parent="Sprite2D" unique_id=648325050]
+self_modulate = Color(1, 1, 1, 0.60784316)
+show_behind_parent = true
+position = Vector2(7.1525574e-07, 15)
+scale = Vector2(1.7500001, 0.75)
+texture = ExtResource("2_fqkls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540398539]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_6q8e7")

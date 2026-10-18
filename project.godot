@@ -18,6 +18,10 @@ config/name="Gamejam Halloween IMD"
 run/main_scene="uid://dp83flofq3btp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout="uid://ca21n5esc7ocd"
+
 [autoload]
 
 WindowManager="*uid://dc78irm4wyt6t"
@@ -110,13 +114,14 @@ move_left={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/interactable/locked_door.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/interactable/candies.dialogue")
 
 [layer_names]
 
 2d_physics/layer_1="Player"
 2d_navigation/layer_1="Floor"
 2d_physics/layer_2="Walls"
+2d_physics/layer_3="Environment"
 2d_physics/layer_8="Interactable"
 
 [physics]
@@ -129,4 +134,5 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true

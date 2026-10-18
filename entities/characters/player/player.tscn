@@ -9,13 +9,102 @@ radius = 3.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(24, 24)
 
-[node name="Player" type="CharacterBody2D" unique_id=1035651697]
-collision_mask = 3
-script = ExtResource("1_eoic6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoic6"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(256, 0, 32, 32)
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1471310765]
-texture = ExtResource("2_qrd5i")
-offset = Vector2(0, -12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrd5i"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqnow"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbevp"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3s12"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0gj2"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d5hj"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx21o"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sybl7"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5otfs"]
+atlas = ExtResource("2_qrd5i")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoic6")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrd5i")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqnow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbevp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3s12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0gj2")
+}],
+"loop": 1,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d5hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx21o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sybl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5otfs")
+}],
+"loop": 1,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1035651697]
+collision_mask = 7
+script = ExtResource("1_eoic6")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=892401914]
 rotation = 1.5707964
@@ -38,3 +127,8 @@ target_position = Vector2(12, 0)
 collision_mask = 128
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2068510572]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"walk_up"
+offset = Vector2(0, -10)

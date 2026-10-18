@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ddskuhu3cyl8v"]
+
+[ext_resource type="Texture2D" uid="uid://dtdsk6c6bayqp" path="res://entities/environment/environment_atlas.png" id="1_5b1pb"]
+[ext_resource type="Texture2D" uid="uid://ftg6xnref7yq" path="res://entities/environment/shadow.png" id="1_byfmn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4x48"]
+size = Vector2(22, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("1_5b1pb")
+region = Rect2(132, 269, 24, 38)
+
+[node name="BedSingle" type="StaticBody2D" unique_id=786031377]
+y_sort_enabled = true
+position = Vector2(0, -2)
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540398539]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_w4x48")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1754859760]
+texture = SubResource("AtlasTexture_g4v7s")
+offset = Vector2(0, 8)
+
+[node name="Shadow" type="Sprite2D" parent="Sprite2D" unique_id=447391850]
+self_modulate = Color(1, 1, 1, 0.60784316)
+show_behind_parent = true
+z_index = -1
+position = Vector2(2.3841858e-07, 19)
+scale = Vector2(1.375, 1)
+texture = ExtResource("1_byfmn")

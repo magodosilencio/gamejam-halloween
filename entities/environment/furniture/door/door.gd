@@ -15,9 +15,10 @@ var is_changing_state: bool = false;
 func _ready():
 	var last_frame: int = sprite.sprite_frames.get_frame_count(ANIM_OPEN);
 	sprite.frame = last_frame if is_open else 0;
+	collider.disabled = is_open;
 
 func _change_door_state():
-	if (!is_node_ready() || is_changing_state): return;
+	if (!is_node_ready() || is_changing_state || is_locked): return;
 	
 	is_open = !is_open;
 	is_changing_state = true;

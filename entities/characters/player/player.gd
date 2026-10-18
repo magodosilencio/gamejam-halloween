@@ -3,13 +3,22 @@ class_name Player
 
 const TILE_SIZE: int = 16;
 const MOVEMENT_DEADZONE: float = 0.25;
-const SPEED: float = 5;
+const SPEED: float = 4;
+
+enum PLAYER_STATE {
+	IDLE,
+	WALK,
+}
 
 var can_move: bool = true;
 var dir: Vector2 = Vector2.ZERO;
+var current_state: int = 0;
 
 @onready var interaction_area: Area2D = $Areas/InteractionArea;
 @onready var interaction_ray: RayCast2D = $Raycasts/InteractionRay;
+@onready var anim_player: AnimatedSprite2D = $AnimatedSprite2D;
+
+
 
 func _ready() -> void:
 	add_to_group("player");
@@ -25,6 +34,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if (can_move): _move();
+	_animate_player();
 
 
 func _input_handling() -> void:
@@ -45,8 +55,10 @@ func _move():
 	var abs_dir: Vector2 = dir.abs();
 	if (can_move && (abs_dir.x > MOVEMENT_DEADZONE || abs_dir.y > MOVEMENT_DEADZONE)):
 		velocity = dir.normalized() * SPEED * TILE_SIZE;
+		current_state = PLAYER_STATE.WALK;
 	else:
 		velocity = Vector2.ZERO;
+		current_state = PLAYER_STATE.IDLE;
 	
 	move_and_slide();
 
@@ -54,6 +66,12 @@ func _interact():
 	if (interaction_ray.is_colliding()):
 		var object: Interactable = interaction_ray.get_collider();
 		if (object != null): object.interact();
+
+func _animate_player():
+	var anim_dir = "up" if dir.y < 0 else "down";
+	
+	if (current_state == PLAYER_STATE.WALK): anim_player.play("walk_" + anim_dir);
+	else: anim_player.play("idle_" + anim_dir);
 
 func _on_dialogue_started():
 	can_move = false;
